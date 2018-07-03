@@ -1,4 +1,7 @@
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -14,8 +17,7 @@ import org.apache.lucene.util.Version;
 import javax.swing.plaf.synth.SynthTextAreaUI;
 import javax.xml.transform.Result;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
@@ -31,10 +33,10 @@ public class indexDatabase {
     {
         try {
             indexDatabase index = new indexDatabase();
-          //  index.indexDatabase(index.getResult("SELECT sbj, vd FROM vd_zhwiki"));
-          //  index.searcher("\\u4f9b\\u7535");
-            index.MatchAllDocs();
-            index.searchIndex();
+            //index.indexDatabase(index.getResult("SELECT sbj, vd FROM vd_zhwiki"));
+            // index.searcher("\\u4f9b\\u7535");
+            //index.MatchAllDocs();
+            index.searchIndex("中国");
         }
         catch(Exception e)
         {
@@ -88,19 +90,33 @@ public class indexDatabase {
 
             while(rs.next())
             {
-                Document doc = new Document();
+                try {
+                    Document doc = new Document();
 
-                String sbj = rs.getString("sbj");
-                Field sbjField = new TextField("sbj", sbj, Field.Store.YES);
-                doc.add(sbjField);
+                    String sbj = rs.getString("sbj");
+                    Field sbjField = new TextField("sbj", sbj, Field.Store.YES);
+                    doc.add(sbjField);
 
-                String vd = rs.getString("vd");
-                Field vdField = new TextField("vd", vd, Field.Store.YES);
-                doc.add(vdField);
+                    String vd = rs.getString("vd");
 
-                writer.addDocument(doc);
-                System.out.println("index " + counter + " has been created");
-                counter++;
+                    String json = "[" + vd + "]";
+                    JSONArray jsonArray = JSONArray.fromObject(json);
+                    Object[] os = jsonArray.toArray();
+                    JSONObject jsonObject = JSONObject.fromObject(os[0]);
+                    //System.out.println(jsonObject.names());
+                    String vd_use = jsonObject.names().toString();
+
+                    Field vdField = new TextField("vd", vd_use, Field.Store.YES);
+                    doc.add(vdField);
+
+                    writer.addDocument(doc);
+                    System.out.println("index " + counter + " has been created");
+                    counter++;
+                }
+                catch(ClassCastException ce)
+                {
+                    continue;
+                }
             }
             writer.close();
         }
@@ -158,12 +174,12 @@ public class indexDatabase {
              reader.close();
         }
        catch(IOException ie)
-    {
-        ie.printStackTrace();
-    }
+        {
+                ie.printStackTrace();
+        }
         }
 
-        public void searchIndex()
+        public void searchIndex(String term)
         {
             try {
                 final Path path = Paths.get("D:\\JAVA\\luceneIndexingDatabase\\INDEX");
@@ -171,10 +187,12 @@ public class indexDatabase {
                 IndexReader reader = DirectoryReader.open(directory);
                 IndexSearcher searcher = new IndexSearcher(reader);
                 Analyzer analyzer = new StandardAnalyzer();
+               // Analyzer analyzer = new SmartChineseAnalyzer();
 
                 QueryParser parser = new QueryParser("vd",analyzer);
-                Query query = parser.parse("iPod");
-                ScoreDoc[] hits = searcher.search(query, 1000).scoreDocs;
+              //  TermQuery tq = new TermQuery(new Term("vd","少年"));
+                Query query = parser.parse(term);
+                ScoreDoc[] hits = searcher.search(query, 20).scoreDocs;
                 System.out.println(hits.length + " total has been found");
                 for(int i = 0; i < hits.length; i++)
                 {
@@ -195,7 +213,5 @@ public class indexDatabase {
                 pe.printStackTrace();
             }
         }
-
-
     }
 

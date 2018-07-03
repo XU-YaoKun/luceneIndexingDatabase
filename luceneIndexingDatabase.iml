@@ -12,5 +12,9 @@
     <orderEntry type="library" name="lucene-core-7.3.1" level="project" />
     <orderEntry type="library" name="commons-io" level="project" />
     <orderEntry type="library" name="lucene-queryparser-7.3.1" level="project" />
+    <orderEntry type="library" name="lucene-sandbox-7.3.1" level="project" />
+    <orderEntry type="library" name="lucene-analyzers-smartcn-7.3.1" level="project" />
+    <orderEntry type="library" name="json-lib-2.4-jdk15" level="project" />
+    <orderEntry type="library" name="commons-beanutils-1.9.31" level="project" />
   </component>
 </module>
