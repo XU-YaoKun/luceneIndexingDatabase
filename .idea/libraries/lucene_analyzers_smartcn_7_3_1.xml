@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="lucene-analyzers-smartcn-7.3.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../variousPackage/lucene-7.3.1/analysis/smartcn/lucene-analyzers-smartcn-7.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
