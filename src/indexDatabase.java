@@ -24,6 +24,7 @@ import java.sql.*;
 
 public class indexDatabase {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+
     static final String DB_URL = "jdbc:mysql://192.168.1.101:3306/zhishi";
 
     static final String USER = "xyk";
@@ -32,6 +33,7 @@ public class indexDatabase {
     public static void main(String[] args)
     {
         try {
+
             Parameter parameter = new Parameter();
             indexDatabase index = new indexDatabase();
             index.indexDatabase(index.getResult(parameter.sql_query)); // index database
@@ -54,6 +56,7 @@ public class indexDatabase {
             Class.forName("com.mysql.jdbc.Driver");
 
             //open the url
+
             Parameter parameter = new Parameter();
             System.out.println("connecting the database......");
             conn = DriverManager.getConnection(parameter.DB_URL,parameter.USER,parameter.PASS);
@@ -78,9 +81,11 @@ public class indexDatabase {
     {
         try
         {
+
             Parameter parameter = new Parameter();
 
             final Path path = Paths.get(parameter.path);
+
             Directory directory = FSDirectory.open(path);
 
             Analyzer analyzer = new StandardAnalyzer();
@@ -99,17 +104,21 @@ public class indexDatabase {
                     Field sbjField = new TextField("sbj", sbj, Field.Store.YES);
                     doc.add(sbjField);
 
+
                     String nv = rs.getString("nv");
 
                     String json = "[" + nv + "]";
+
                     JSONArray jsonArray = JSONArray.fromObject(json);
                     Object[] os = jsonArray.toArray();
                     JSONObject jsonObject = JSONObject.fromObject(os[0]);
                     //System.out.println(jsonObject.names());
                     String vd_use = jsonObject.names().toString();
 
+
                     Field nvField = new TextField("nv", vd_use, Field.Store.YES);
                     doc.add(nvField);
+
 
                     writer.addDocument(doc);
                     System.out.println("index " + counter + " has been created");
@@ -134,10 +143,12 @@ public class indexDatabase {
 
     public void searcher(String queryString) throws Exception
     {
+
         Parameter parameter = new Parameter();
        String field = "nv";
        String queryStr = queryString;
        final Path path = Paths.get(parameter.path);
+
        Directory directory = FSDirectory.open(path);
        IndexReader reader = DirectoryReader.open(directory);
        IndexSearcher searcher = new IndexSearcher(reader);
@@ -158,8 +169,10 @@ public class indexDatabase {
 
         public void MatchAllDocs() {
         try {
+
             Parameter parameter = new Parameter();
             final Path path = Paths.get(parameter.path);
+
             Directory directory = FSDirectory.open(path);
             IndexReader reader = DirectoryReader.open(directory);
             IndexSearcher searcher = new IndexSearcher(reader);
@@ -172,7 +185,9 @@ public class indexDatabase {
              {
                  Document document = searcher.doc(scoreDoc.doc);
                  System.out.println(document.get("sbj"));
+
                  System.out.println(document.get("nv"));
+
                  System.out.println("-------------------------------------");
              }
              reader.close();
@@ -186,16 +201,19 @@ public class indexDatabase {
         public void searchIndex(String term)
         {
             try {
+
                 int flag = 0;
                 int tolerate = 0;
                 eliminateNoise excludeNoise = new eliminateNoise();
                 Parameter parameter = new Parameter();
                 final Path path = Paths.get(parameter.path);
+
                 Directory directory = FSDirectory.open(path);
                 IndexReader reader = DirectoryReader.open(directory);
                 IndexSearcher searcher = new IndexSearcher(reader);
                 Analyzer analyzer = new StandardAnalyzer();
                // Analyzer analyzer = new SmartChineseAnalyzer();
+
 
                 QueryParser parser = new QueryParser(parameter.field_nv,analyzer);
                 Query tq = new TermQuery(new Term(parameter.field_nv,term));
@@ -204,10 +222,11 @@ public class indexDatabase {
                 ScoreDoc[] hits = searcher.search(query, parameter.n).scoreDocs;
 
 
+
                 System.out.println(hits.length + " total has been found");
                 for(int i = 0; i < hits.length; i++)
                 {
-                    Document hitDoc = searcher.doc(hits[i].doc);
+
                     String name_vector = hitDoc.get("nv");
                     String[] item = name_vector.split(",");
 
@@ -222,7 +241,6 @@ public class indexDatabase {
                     if(flag == 1 && tolerate > 5) break;
                     System.out.println(hitDoc.get("sbj"));
                     System.out.println(hitDoc.get("nv"));
-
                     System.out.println("-------------------------------");
                 }
                 reader.close();
