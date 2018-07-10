@@ -1,19 +1,31 @@
 import java.sql.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GenarateInvertedIndex {
     static String sql_query = "SELECT inverted FROM inverted WHERE ID = ";
 
     public static void main(String[] args)
     {
-        String item = getItem(1, sql_query);
+        Parameter parameter = new Parameter();
+        int max = parameter.inverted_max_id;
+        String item = new String();
+        Set<String> item_set = new HashSet<String>();
+        for(int i = 1; i < max; i++)
+        {
+            item = getItem(i, sql_query);
+            System.out.println(item);
+            item_set = searchIndex(item);
+        }
         System.out.println("the item result is " + item);
     }
 
-    public static String[] searchIndex(String inverted_index)
+    public static Set<String> searchIndex(String inverted_index)
     {
         indexDatabase searcher = new indexDatabase();
-        String[] resultList;
-        return null;
+        Set<String> resultList;
+        resultList = indexDatabase.searchIndex(inverted_index);
+        return resultList;
     }
 
     public static String getItem(int id, String sql_query)

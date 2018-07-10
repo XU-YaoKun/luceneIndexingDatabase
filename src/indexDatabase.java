@@ -191,7 +191,7 @@ public class indexDatabase {
         }
         }
 
-        public void searchIndex(String term)
+        public static Set<String> searchIndex(String term)
         {
             try {
                 int flag = 0;
@@ -233,12 +233,14 @@ public class indexDatabase {
                     if(flag == 1 && tolerate > 5) break;
                     System.out.println(hitDoc.get("sbj"));
                     resultSet.add(hitDoc.get("sbj"));
+                    resultSet.add(hitDoc.get("sbj"));
 
                     System.out.println(hitDoc.get("nv"));
                     System.out.println("-------------------------------");
                 }
                 reader.close();
                 directory.close();
+                return resultSet;
             }
             catch(IOException ie)
             {
@@ -248,6 +250,7 @@ public class indexDatabase {
             {
                 pe.printStackTrace();
             }
+            return null;
         }
     }
 

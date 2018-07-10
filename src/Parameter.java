@@ -13,4 +13,6 @@ public class Parameter {
     String sql_query_inverted_index = "SELECT sbj, nv FROM inverted";
 
     String field_nv = "nv";
+
+    int inverted_max_id = 1304132;
 }
