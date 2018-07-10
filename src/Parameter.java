@@ -8,6 +8,7 @@ public class Parameter {
     static final String USER = "xyk";
     static final String PASS = "123";
     String path = "D:\\JAVA\\INDEX\\namevector_WIKI";
+    String inverted_index_path = "D:\\JAVA\\INDEX\\inverted_index";
 
     String sql_query = "SELECT sbj, nv FROM nv_zhwiki";
     String sql_query_inverted_index = "SELECT sbj, nv FROM inverted";

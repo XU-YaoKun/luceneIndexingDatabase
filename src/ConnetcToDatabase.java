@@ -1,9 +1,9 @@
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnetcToDatabase {
-
 
     public static void main(String[] args)
     {
@@ -38,8 +38,16 @@ public class ConnetcToDatabase {
         {
             e.printStackTrace();
         }
-
     }
 
+    public static boolean createfile(String fileName, String fileContent)
+    {
+        Parameter parameter = new Parameter();
+        String path = parameter.inverted_index_path;
+        Boolean bool = false;
+        String fileNameTemp = fileName + ".txt";
+        File file = new File(path);
+        return bool;
+    }
 
 }

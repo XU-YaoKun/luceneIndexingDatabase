@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7100b4dd-d0c2-4c88-b78e-2a628a523480" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/CreateFile.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/luceneIndexingDatabase/GenarateInvertedIndex.class" afterPath="$PROJECT_DIR$/out/production/luceneIndexingDatabase/GenarateInvertedIndex.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/luceneIndexingDatabase/indexDatabase.class" afterPath="$PROJECT_DIR$/out/production/luceneIndexingDatabase/indexDatabase.class" />
+      <change beforePath="$PROJECT_DIR$/src/ConnetcToDatabase.java" afterPath="$PROJECT_DIR$/src/ConnetcToDatabase.java" />
       <change beforePath="$PROJECT_DIR$/src/GenarateInvertedIndex.java" afterPath="$PROJECT_DIR$/src/GenarateInvertedIndex.java" />
       <change beforePath="$PROJECT_DIR$/src/Parameter.java" afterPath="$PROJECT_DIR$/src/Parameter.java" />
       <change beforePath="$PROJECT_DIR$/src/indexDatabase.java" afterPath="$PROJECT_DIR$/src/indexDatabase.java" />
@@ -16,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="indexDatabase.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="indexDatabase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/indexDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="193" column="22" lean-forward="false" selection-start-line="193" selection-start-column="22" selection-end-line="193" selection-end-column="22" />
+            <state relative-caret-position="-857">
+              <caret line="193" column="28" lean-forward="false" selection-start-line="193" selection-start-column="28" selection-end-line="193" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#7303#7311#0" expanded="true" />
@@ -32,8 +37,8 @@
       <file leaf-file-name="ConnetcToDatabase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ConnetcToDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="552">
+              <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,14 +46,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenarateInvertedIndex.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GenarateInvertedIndex.java">
+      <file leaf-file-name="CreateFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CreateFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+            <state relative-caret-position="69">
+              <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#400#408#0" expanded="true" />
+                <element signature="e#318#326#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenarateInvertedIndex.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GenarateInvertedIndex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="66" column="40" lean-forward="false" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#491#499#0" expanded="true" />
+                <marker date="1531228022961" expanded="true" signature="173:213" ph="SELECT inver... inverted" />
               </folding>
             </state>
           </provider>
@@ -77,8 +96,8 @@
       <file leaf-file-name="Parameter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Parameter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+            <state relative-caret-position="230">
+              <caret line="10" column="67" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -130,72 +149,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FST.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../variousPackage/lucene-7.3.1/core/lucene-core-7.3.1.jar!/org/apache/lucene/util/fst/FST.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11224">
-              <caret line="519" column="0" lean-forward="false" selection-start-line="519" selection-start-column="0" selection-end-line="519" selection-end-column="0" />
-              <folding>
-                <marker date="1525829246000" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1525829246000" expanded="false" signature="150:1033" ph="..." />
-                <marker date="1525829246000" expanded="false" signature="2840:2851" ph=" { " />
-                <marker date="1525829246000" expanded="false" signature="2877:2883" ph=" }" />
-                <marker date="1525829246000" expanded="true" signature="2958:3245" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="3315:3373" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="3461:5781" ph="{...}" />
-                <marker date="1525829246000" expanded="false" signature="5823:5834" ph=" { " />
-                <marker date="1525829246000" expanded="false" signature="5856:5862" ph=" }" />
-                <marker date="1525829246000" expanded="true" signature="5913:6750" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="6783:7064" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="7095:7207" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="7263:7684" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="7738:8755" ph="{...}" />
-                <marker date="1525829246000" expanded="false" signature="8786:8797" ph=" { " />
-                <marker date="1525829246000" expanded="false" signature="8821:8827" ph=" }" />
-                <marker date="1525829246000" expanded="true" signature="8877:9058" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="9116:10948" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="11001:11661" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="11747:12441" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="12513:12886" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="12946:13240" ph="{...}" />
-                <marker date="1525829246000" expanded="false" signature="13301:13312" ph=" { " />
-                <marker date="1525829246000" expanded="false" signature="13335:13341" ph=" }" />
-                <marker date="1525829246000" expanded="true" signature="13425:17846" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="17898:18378" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="18494:19971" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="20052:20241" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="20358:20825" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="20938:21452" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="21541:21722" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="21813:22171" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="22260:23003" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="23098:24593" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="24687:25648" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="25778:25857" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="26013:28643" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="28716:29170" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="29249:29359" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="29405:29545" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="29558:29632" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="29697:29889" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="29728:29739" ph="{}" />
-                <marker date="1525829246000" expanded="true" signature="29928:32036" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="30228:30239" ph="{}" />
-                <marker date="1525829246000" expanded="true" signature="30294:30838" ph="{...}" />
-                <marker date="1525829246000" expanded="false" signature="30870:30885" ph=" { " />
-                <marker date="1525829246000" expanded="false" signature="30919:30929" ph=" }" />
-                <marker date="1525829246000" expanded="false" signature="30962:30977" ph=" { " />
-                <marker date="1525829246000" expanded="false" signature="30997:31007" ph=" }" />
-                <marker date="1525829246000" expanded="false" signature="31041:31056" ph=" { " />
-                <marker date="1525829246000" expanded="false" signature="31076:31086" ph=" }" />
-                <marker date="1525829246000" expanded="true" signature="31121:32030" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="32072:32166" ph="{...}" />
-                <marker date="1525829246000" expanded="true" signature="32149:32160" ph="{}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ByteSequenceOutputs.class" pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../variousPackage/lucene-7.3.1/core/lucene-core-7.3.1.jar!/org/apache/lucene/util/fst/ByteSequenceOutputs.class">
           <provider selected="true" editor-type-id="text-editor">
@@ -236,6 +189,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>System.out.print</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -249,9 +207,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/toUTF8.java" />
         <option value="$PROJECT_DIR$/.idea/libraries/commons_beanutils_1_9_3.xml" />
-        <option value="$PROJECT_DIR$/src/ConnetcToDatabase.java" />
         <option value="$PROJECT_DIR$/src/indexDatabase.java" />
         <option value="$PROJECT_DIR$/src/Parameter.java" />
+        <option value="$PROJECT_DIR$/src/ConnetcToDatabase.java" />
+        <option value="$PROJECT_DIR$/src/CreateFile.java" />
         <option value="$PROJECT_DIR$/src/GenarateInvertedIndex.java" />
       </list>
     </option>
@@ -262,9 +221,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="835" />
-    <option name="y" value="28" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="949" />
+    <option name="y" value="6" />
     <option name="width" value="976" />
     <option name="height" value="1088" />
   </component>
@@ -342,6 +301,20 @@
     <configuration name="ConnectToDatabase" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="ConnetcToDatabase" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="luceneIndexingDatabase" />
+      <envs />
+    </configuration>
+    <configuration name="CreateFile" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="CreateFile" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -455,10 +428,11 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.GenerateInvertedIndex" />
-      <item index="1" class="java.lang.String" itemvalue="Application.indexDatabase" />
-      <item index="2" class="java.lang.String" itemvalue="Application.ConnectToDatabase" />
+      <item index="1" class="java.lang.String" itemvalue="Application.CreateFile" />
+      <item index="2" class="java.lang.String" itemvalue="Application.indexDatabase" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ConnectToDatabase" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -494,15 +468,15 @@
       <workItem from="1527600543717" duration="4543000" />
       <workItem from="1530605043918" duration="1504000" />
       <workItem from="1531214417039" duration="2412000" />
-      <workItem from="1531217133834" duration="5610000" />
+      <workItem from="1531217133834" duration="8848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38648000" />
+    <option name="totallyTimeSpent" value="41886000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1098" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -514,7 +488,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13719185" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25294748" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -547,13 +521,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../variousPackage/lucene-7.3.1/core/lucene-core-7.3.1.jar!/org/apache/lucene/index/TermContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../variousPackage/lucene-7.3.1/core/lucene-core-7.3.1.jar!/org/apache/lucene/util/fst/FST.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11224">
@@ -1104,10 +1071,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/indexDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-857">
+          <caret line="193" column="28" lean-forward="false" selection-start-line="193" selection-start-column="28" selection-end-line="193" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7303#7311#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parameter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="67" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConnetcToDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="552">
+          <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1122,32 +1108,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parameter.java">
+    <entry file="file://$PROJECT_DIR$/src/CreateFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="69">
+          <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#318#326#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GenarateInvertedIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        <state relative-caret-position="483">
+          <caret line="66" column="40" lean-forward="false" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#400#408#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/indexDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="193" column="22" lean-forward="false" selection-start-line="193" selection-start-column="22" selection-end-line="193" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7303#7311#0" expanded="true" />
+            <element signature="e#491#499#0" expanded="true" />
+            <marker date="1531228022961" expanded="true" signature="173:213" ph="SELECT inver... inverted" />
           </folding>
         </state>
       </provider>

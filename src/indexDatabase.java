@@ -214,7 +214,7 @@ public class indexDatabase {
 
                 Set<String> resultSet = new HashSet<String>();
 
-                System.out.println(hits.length + " total has been found");
+             //   System.out.println(hits.length + " total has been found");
                 for(int i = 0; i < hits.length; i++)
                 {
                     Document hitDoc = searcher.doc(hits[i].doc);
@@ -231,12 +231,11 @@ public class indexDatabase {
                     }
                     if(flag == 1) tolerate++;
                     if(flag == 1 && tolerate > 5) break;
-                    System.out.println(hitDoc.get("sbj"));
-                    resultSet.add(hitDoc.get("sbj"));
+                 //   System.out.println(hitDoc.get("sbj"));
                     resultSet.add(hitDoc.get("sbj"));
 
-                    System.out.println(hitDoc.get("nv"));
-                    System.out.println("-------------------------------");
+                  //  System.out.println(hitDoc.get("nv"));
+                  //  System.out.println("-------------------------------");
                 }
                 reader.close();
                 directory.close();
