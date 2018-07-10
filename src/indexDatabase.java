@@ -18,22 +18,17 @@ import javax.swing.plaf.synth.SynthTextAreaUI;
 import javax.xml.transform.Result;
 
 import java.io.*;
+import java.net.URLDecoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class indexDatabase {
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-
-    static final String DB_URL = "jdbc:mysql://192.168.1.101:3306/zhishi";
-
-    static final String USER = "xyk";
-    static final String PASS = "123";
-
     public static void main(String[] args)
     {
         try {
-
             Parameter parameter = new Parameter();
             indexDatabase index = new indexDatabase();
             index.indexDatabase(index.getResult(parameter.sql_query)); // index database
@@ -45,7 +40,6 @@ public class indexDatabase {
         }
     }
 
-
     public ResultSet getResult(String sql)
     {
         Connection conn = null;
@@ -56,10 +50,12 @@ public class indexDatabase {
             Class.forName("com.mysql.jdbc.Driver");
 
             //open the url
-
             Parameter parameter = new Parameter();
             System.out.println("connecting the database......");
             conn = DriverManager.getConnection(parameter.DB_URL,parameter.USER,parameter.PASS);
+
+            if(!conn.isClosed())
+                System.out.println("connect to database Successfully");
 
             System.out.println("initializing the statement");
             stmt = conn.createStatement();
@@ -83,14 +79,10 @@ public class indexDatabase {
         {
 
             Parameter parameter = new Parameter();
-
             final Path path = Paths.get(parameter.path);
-
             Directory directory = FSDirectory.open(path);
-
             Analyzer analyzer = new StandardAnalyzer();
             IndexWriterConfig config = new IndexWriterConfig(analyzer);
-
             IndexWriter writer = new IndexWriter(directory, config);
 
             int counter = 0;
@@ -101,9 +93,11 @@ public class indexDatabase {
                     Document doc = new Document();
 
                     String sbj = rs.getString("sbj");
-                    Field sbjField = new TextField("sbj", sbj, Field.Store.YES);
-                    doc.add(sbjField);
 
+                    String sbj_use = URLDecoder.decode(sbj,"UTF-8");
+                //   System.out.println(sbj_use);
+                    Field sbjField = new TextField("sbj", sbj_use, Field.Store.YES);
+                    doc.add(sbjField);
 
                     String nv = rs.getString("nv");
 
@@ -114,7 +108,6 @@ public class indexDatabase {
                     JSONObject jsonObject = JSONObject.fromObject(os[0]);
                     //System.out.println(jsonObject.names());
                     String vd_use = jsonObject.names().toString();
-
 
                     Field nvField = new TextField("nv", vd_use, Field.Store.YES);
                     doc.add(nvField);
@@ -201,7 +194,6 @@ public class indexDatabase {
         public void searchIndex(String term)
         {
             try {
-
                 int flag = 0;
                 int tolerate = 0;
                 eliminateNoise excludeNoise = new eliminateNoise();
@@ -214,18 +206,18 @@ public class indexDatabase {
                 Analyzer analyzer = new StandardAnalyzer();
                // Analyzer analyzer = new SmartChineseAnalyzer();
 
-
                 QueryParser parser = new QueryParser(parameter.field_nv,analyzer);
                 Query tq = new TermQuery(new Term(parameter.field_nv,term));
                 Query query = parser.parse(term);
 
                 ScoreDoc[] hits = searcher.search(query, parameter.n).scoreDocs;
 
-
+                Set<String> resultSet = new HashSet<String>();
 
                 System.out.println(hits.length + " total has been found");
                 for(int i = 0; i < hits.length; i++)
                 {
+                    Document hitDoc = searcher.doc(hits[i].doc);
 
                     String name_vector = hitDoc.get("nv");
                     String[] item = name_vector.split(",");
@@ -240,6 +232,8 @@ public class indexDatabase {
                     if(flag == 1) tolerate++;
                     if(flag == 1 && tolerate > 5) break;
                     System.out.println(hitDoc.get("sbj"));
+                    resultSet.add(hitDoc.get("sbj"));
+
                     System.out.println(hitDoc.get("nv"));
                     System.out.println("-------------------------------");
                 }

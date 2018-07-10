@@ -7,10 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-<<<<<<< HEAD
-=======
-    <orderEntry type="library" name="mysql-connector-java-5.1.39-bin" level="project" />
->>>>>>> 7e8deacf5b9c6b3e4434e13c77116420583ea91b
+
+
     <orderEntry type="library" name="lucene-analyzers-common-7.3.1" level="project" />
     <orderEntry type="library" name="lucene-core-7.3.1" level="project" />
     <orderEntry type="library" name="commons-io" level="project" />
@@ -19,9 +17,9 @@
     <orderEntry type="library" name="lucene-analyzers-smartcn-7.3.1" level="project" />
     <orderEntry type="library" name="json-lib-2.4-jdk15" level="project" />
     <orderEntry type="library" name="commons-beanutils-1.9.31" level="project" />
-<<<<<<< HEAD
+
     <orderEntry type="library" name="mysql-connector-java-8.0.11" level="project" />
-=======
->>>>>>> 7e8deacf5b9c6b3e4434e13c77116420583ea91b
+
+
   </component>
 </module>
