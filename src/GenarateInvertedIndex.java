@@ -18,6 +18,7 @@ public class GenarateInvertedIndex {
         for(int i = 1; i < max; i++)
         {
             item = getItem(i, sql_query);
+            //create file in the given directory
             File file = new File(path + "\\" + String.valueOf(i) + ".txt");
             try
             {
@@ -38,7 +39,6 @@ public class GenarateInvertedIndex {
             FileOutputStream fos = null;
             PrintStream ps = null;
 
-
             System.out.println(item);
             try {
                 fos = new FileOutputStream(file, true);
@@ -49,9 +49,11 @@ public class GenarateInvertedIndex {
                 e.printStackTrace();
             }
 
+            //write subject into file
             ps.print(item + "\r\n");
             ps.close();
 
+            //write search result into file
             item_set = searchIndex(item);
             for(String subject : item_set) {
                 System.out.println(subject);
@@ -67,12 +69,11 @@ public class GenarateInvertedIndex {
                 ps.print(subject + "\r\n");
                 ps.close();
             }
-
-
         }
         System.out.println("the item result is " + item);
     }
 
+    //search result from search engine given index
     public static Set<String> searchIndex(String inverted_index)
     {
         indexDatabase searcher = new indexDatabase();
@@ -81,6 +82,7 @@ public class GenarateInvertedIndex {
         return resultList;
     }
 
+    //get item from mysql given id
     public static String getItem(int id, String sql_query)
     {
         Connection conn = null;
@@ -89,7 +91,6 @@ public class GenarateInvertedIndex {
         String url = parameter.DB_URL;
         String user = parameter.USER;
         String passwd = parameter.PASS;
-
         String res;
 
         try
@@ -107,7 +108,6 @@ public class GenarateInvertedIndex {
             resultSet.next();
 
             res = resultSet.getString("inverted");
-
             return res;
         }
         catch (ClassNotFoundException e)
@@ -118,7 +118,6 @@ public class GenarateInvertedIndex {
         {
             e.printStackTrace();
         }
-
         return null;
     }
 }

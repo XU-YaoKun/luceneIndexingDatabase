@@ -31,8 +31,10 @@ public class indexDatabase {
         try {
             Parameter parameter = new Parameter();
             indexDatabase index = new indexDatabase();
-            index.indexDatabase(index.getResult(parameter.sql_query)); // index database
-            index.searchIndex("人类"); //get search result
+            //create index for data in mysql
+            index.indexDatabase(index.getResult(parameter.sql_query));
+            //search term in index files
+            index.searchIndex("人类");
         }
         catch(Exception e)
         {
@@ -40,6 +42,7 @@ public class indexDatabase {
         }
     }
 
+    //get search result from mysql
     public ResultSet getResult(String sql)
     {
         Connection conn = null;
@@ -54,11 +57,15 @@ public class indexDatabase {
             System.out.println("connecting the database......");
             conn = DriverManager.getConnection(parameter.DB_URL,parameter.USER,parameter.PASS);
 
+            //print whether connect to database successfully
             if(!conn.isClosed())
                 System.out.println("connect to database Successfully");
+            else
+                System.out.println("fail to connect to database");
 
             System.out.println("initializing the statement");
             stmt = conn.createStatement();
+            //use sql to get search result
             ResultSet rs = stmt.executeQuery(sql);
             return rs;
         }
@@ -73,50 +80,51 @@ public class indexDatabase {
         return null;
     }
 
+    //index database
     public void indexDatabase(ResultSet rs)
     {
         try
         {
-
             Parameter parameter = new Parameter();
+            //get path of directory
             final Path path = Paths.get(parameter.path);
             Directory directory = FSDirectory.open(path);
+            //define analyzer, i choose standard analyzer and alternative analyzer can be used
             Analyzer analyzer = new StandardAnalyzer();
             IndexWriterConfig config = new IndexWriterConfig(analyzer);
             IndexWriter writer = new IndexWriter(directory, config);
 
             int counter = 0;
-
+            //interate result set
             while(rs.next())
             {
                 try {
                     Document doc = new Document();
-
+                    //get subject from item
                     String sbj = rs.getString("sbj");
-
+                    //transfer encoding of sbj, to print Chinese
                     String sbj_use = URLDecoder.decode(sbj,"UTF-8");
-                //   System.out.println(sbj_use);
+                    //add a subject field to document
                     Field sbjField = new TextField("sbj", sbj_use, Field.Store.YES);
                     doc.add(sbjField);
 
+                    //get name vector from item
                     String nv = rs.getString("nv");
-
+                    //transfer json to Chinese iterately
                     String json = "[" + nv + "]";
-
                     JSONArray jsonArray = JSONArray.fromObject(json);
                     Object[] os = jsonArray.toArray();
                     JSONObject jsonObject = JSONObject.fromObject(os[0]);
-                    //System.out.println(jsonObject.names());
                     String vd_use = jsonObject.names().toString();
-
+                    //add a name vector field to document
                     Field nvField = new TextField("nv", vd_use, Field.Store.YES);
                     doc.add(nvField);
-
 
                     writer.addDocument(doc);
                     System.out.println("index " + counter + " has been created");
                     counter++;
                 }
+                //there might be a classCastException when handling wikipedia and i choose to ignore the exception
                 catch(ClassCastException ce)
                 {
                     continue;
@@ -136,7 +144,6 @@ public class indexDatabase {
 
     public void searcher(String queryString) throws Exception
     {
-
         Parameter parameter = new Parameter();
        String field = "nv";
        String queryStr = queryString;
@@ -158,7 +165,7 @@ public class indexDatabase {
         {
             Document doc = searcher.doc(sd.doc);
         }
-        }
+    }
 
         public void MatchAllDocs() {
         try {
@@ -191,6 +198,7 @@ public class indexDatabase {
         }
         }
 
+        //get search result from index file
         public static Set<String> searchIndex(String term)
         {
             try {
