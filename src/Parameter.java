@@ -7,10 +7,10 @@ public class Parameter {
 
     static final String USER = "xyk";
     static final String PASS = "123";
-    String path = "D:\\JAVA\\INDEX\\namevector_WIKI";
-    String inverted_index_path = "D:\\JAVA\\INDEX\\inverted_index";
+    String path = "D:\\JAVA\\INDEX\\nameVector_HUDONG";
+    String inverted_index_path = "D:\\JAVA\\INDEX\\inverted_index_HUDONG";
 
-    String sql_query = "SELECT sbj, nv FROM nv_zhwiki";
+    String sql_query = "SELECT sbj, nv FROM nv_hudongbaike";
     String sql_query_inverted_index = "SELECT sbj, nv FROM inverted";
 
     String field_nv = "nv";
