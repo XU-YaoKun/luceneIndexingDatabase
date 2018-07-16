@@ -1,6 +1,9 @@
 import com.mysql.cj.protocol.Resultset;
+import javafx.beans.binding.ObjectExpression;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -13,16 +16,62 @@ public class MergeIndex {
 
     public static void main(String[] args)
     {
+        //pedia_1 store information from HUDONG PEDIA
         HashMap pedia_1 = new HashMap();
+        //pedia_2 store information from WIKI PEDIA
         HashMap pedia_2 = new HashMap();
 
         //read in file
         File file_1 = new File("D:\\JAVA\\INDEX\\HUDONG_WIKI\\685_HUDONG.txt");
         File file_2 = new File("D:\\JAVA\\INDEX\\HUDONG_WIKI\\685_WIKI.txt");
 
-        
-        String vd = getVD("汉语", "vd_zhwiki");
-        HashSet<String> res = ConvertToHashset(vd);
+        //now all information in the file stored into the Hashmap
+        read_file(file_1, pedia_1);
+        read_file(file_2, pedia_2);
+
+        for(Object item : pedia_1.keySet())
+            System.out.println(item);
+
+
+        HashSet<String> res_1 = new HashSet<String>();
+        HashSet<String> res_2 = new HashSet<String>();
+        HashSet<String> res = new HashSet<String>();
+
+        int intersection = 0;
+        int block_number = 1;
+
+
+        for (Object item_1 : pedia_1.keySet()) {
+            String vd_1 = getVD(item_1.toString(), "vd_hudongbaike");
+            res_1 = ConvertToHashset(vd_1);
+            for (Object item_2 : pedia_2.keySet()) {
+                String vd_2 = getVD(item_2.toString(), "vd_zhwiki");
+                res_2 = ConvertToHashset(vd_2);
+
+                //get the number of common item in two set
+                res.clear();
+                res.addAll(res_1);
+                res.retainAll(res_2);
+                intersection = res.size();
+
+                if (Integer.valueOf(pedia_1.get(item_1).toString()) == 0 && Integer.valueOf(pedia_2.get(item_2).toString()) == 0 && intersection > 2) {
+                    pedia_1.put(item_1, block_number);
+                    pedia_2.put(item_2, block_number);
+                    block_number++;
+                } else if (Integer.valueOf(pedia_1.get(item_1).toString()) != 0 && Integer.valueOf(pedia_2.get(item_2).toString()) == 0 && intersection > 2) {
+                    pedia_1.put(item_1, pedia_2.get(item_2));
+                } else if (Integer.valueOf(pedia_1.get(item_1).toString()) == 0 && Integer.valueOf(pedia_2.get(item_2).toString()) != 0 && intersection > 2) {
+                    pedia_2.put(item_2, pedia_1.get(item_1));
+                } else
+                    continue;
+            }
+        }
+
+
+        for(Object item : pedia_1.keySet())
+        {
+            System.out.print(pedia_1.get(item));
+        }
     }
 
 
@@ -86,9 +135,40 @@ public class MergeIndex {
         for(String item : vd_item)
         {
             virtual_document = item.split(":")[0];
-            System.out.println(virtual_document);
+            //System.out.println(virtual_document);
             res.add(virtual_document);
         }
         return res;
     }
+
+    public static void read_file(File file, HashMap pedia){
+        BufferedReader reader=null;
+        String temp=null;
+        int line=1;
+        try{
+            reader=new BufferedReader(new FileReader(file));
+            //temp is subject for each line
+            while((temp=reader.readLine())!=null){
+                if(line == 1) {
+                    line++;
+                    continue;
+                }
+                pedia.put(temp, 0);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        finally{
+            if(reader!=null){
+                try{
+                    reader.close();
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 }
