@@ -1,6 +1,6 @@
 # luceneIndexingDatabase
 
-##Index Based on Lucene
+## Index Based on Lucene
 ---
 the purpose of this project is to construct a inverted index for a Knowledge Graph containing all triples grasped from wikipedia, baidubaike and hudongbaike.
 
